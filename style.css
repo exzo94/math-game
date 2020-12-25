@@ -1,0 +1,116 @@
+
+/* !!!Progress Bar Styling */
+.boxes {
+  display: flex; /* SETS .BOX CHILDREN TO USE FLEX */
+  width: 100%;
+} 
+.progress {
+  background-color: white;
+  border: 1px solid #c7c7c7; /* OUTER BORDER 1PX */
+  border-right: none; /* BORDER RIGHT NONE (OVERLAPPING) */
+  position: relative; /* FOR SETTING .PROGRESS-INNER CHILDREN POSITION */
+}
+.progress-inner {
+  position: absolute; /* TO LAY WITHIN PARENT BORDER*/
+  top: 0; /* MUST DEFINE POSITION TO LAY WITHIN PARENT BORDER */
+  bottom: 0;
+  width: 100%; /* COVERING ALL BOXES */
+  background-color: teal; 
+  opacity: .57; 
+  transform: scaleX(0); /* MANIPULATING THE WIDTH IN JS */
+  transform-origin: center left; /* START CENTER VERTICALLY & LEFT HORIZONTALLY  */
+  transition: transform .4s ease-out; /* TRANSITION EFFECT OF TRANSFORM */
+}
+.box {
+  height: 40px; /* HEIGHT OF SINGLE BOX */
+  border-right: 1px solid #c7c7c7; /* BORDER RIGHT 1PX, DIVIDING BOXES */
+  flex: 1; /* STRETCH ALL BOXES FULL WIDTH */
+}
+
+/* !!!Overlay Styling */
+.overlay {
+  background-color: rgba(255, 255, 255, .82);
+  display: flex; /* TO USE JUSTIFY-CONTENT AND ALIGN-ITEMS */
+  justify-content: center;
+  align-items: center; 
+  opacity: 0; /* OPACITY OF THE OVERLAY */
+  visibility: hidden; /* FULL WIDTH STRETCH */
+  transition: all .33s ease-out; /* FULL WIDTH STRETCH */
+  transform: scale(1.2); /* FULL WIDTH STRETCH */
+
+}
+body.overlay-is-open .overlay {
+  opacity: 1; /* FULL WIDTH STRETCH */
+  visibility: visible; /* FULL WIDTH STRETCH */
+  transform: scale(1); /* FULL WIDTH STRETCH */
+}
+body.overlay-is-open .main-ui {
+  filter: blur(10px) /* STYLE OF MAIN-UI WHEN CLASS OVERLAY-IS-OPEN IS ADDED TO THE BODY*/
+}
+/* !!!Question Animation Styling */
+@keyframes showError {
+  50% {
+    color: red; /* FULL WIDTH STRETCH */
+    transform: scale(1.2); /* FULL WIDTH STRETCH */
+  }
+  100% {
+    color: #333; /* FULL WIDTH STRETCH */
+    transform: scale(1); /* FULL WIDTH STRETCH */
+
+  }
+}
+.animate-wrong {
+  animation: .45s showError; /* FULL WIDTH STRETCH */
+}
+/* */
+.problem {
+  
+  font-size: 5rem; /* FULL WIDTH STRETCH */
+  margin: 20px; /* FULL WIDTH STRETCH */
+  text-align: center; /* FULL WIDTH STRETCH */
+  
+}
+.end-message {
+  font-size: 1.5rem; /* FULL WIDTH STRETCH */
+  margin-top: 0; /* FULL WIDTH STRETCH */
+}
+.reset-button {
+  font-size: 1.2rem;
+  background-color: #004094; /* FULL WIDTH STRETCH */
+  border: none; /* FULL WIDTH STRETCH */
+  color: #FFF; /* FULL WIDTH STRETCH */
+  border-radius: 7px; /* FULL WIDTH STRETCH */
+  padding: 12px 20px; /* FULL WIDTH STRETCH */
+  display: inline-block; /* FULL WIDTH STRETCH */
+  outline: none; /* FULL WIDTH STRETCH */
+  cursor: pointer; /* FULL WIDTH STRETCH */
+}
+.reset-button:hover {
+  background-color: #00367e; /* FULL WIDTH STRETCH */
+}
+.reset-button:focus {
+  background-color: #00275a; /* FULL WIDTH STRETCH */
+}
+html {
+  overflow: hidden;
+}
+body {
+  overflow: hidden;
+  background-color: rgba(245,222,179, .1);
+  font-family: 'Source Sans Pro', sans-serif; /* FULL WIDTH STRETCH */
+  color: #333; /* FULL WIDTH STRETCH */
+}
+.main-ui {
+  max-width: 800px; /* FULL WIDTH STRETCH */
+  margin: 0 auto; /* FULL WIDTH STRETCH */
+}
+.our-form {
+  display: flex; /* FULL WIDTH STRETCH */
+  justify-content: center; /* FULL WIDTH STRETCH */
+}
+.status {
+  margin-top: 50px;
+  text-align: center; /* FULL WIDTH STRETCH */
+  font-size: .85rem; /* FULL WIDTH STRETCH */
+  color: #333;
+}
